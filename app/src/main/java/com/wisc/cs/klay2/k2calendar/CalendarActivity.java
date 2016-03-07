@@ -2,6 +2,9 @@ package com.wisc.cs.klay2.k2calendar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.List;
@@ -14,17 +17,48 @@ public class CalendarActivity extends AppCompatActivity {
     //an array  list 366 large one slot for each day of the year
     //each slot can hold a list of events
 
+    CalendarView myCalender;
+    Calendar selectedDay;
+    Button viewDay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         daysEvents = new ArrayList<List<Event>>(366);
+        myCalender = (CalendarView) findViewById(R.id.calendarView);
+        selectedDay = Calendar.getInstance();
+        viewDay = (Button) findViewById(R.id.view_day_button);
+
+        myCalender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                Toast.makeText(getApplicationContext(), "" + dayOfMonth, Toast.LENGTH_SHORT).show();
+
+                selectedDay.set(year, month, dayOfMonth);
+
+            }
+        })
+
+        ;
 
     }
 
+
+    //returns a list of events for either day on startup or user selected day
+    //can return null if there have been no events created... just fyi
+    public List<Event> getEvents(){
+        List<Event> listOfEvents;
+        listOfEvents = daysEvents.get(selectedDay.get(Calendar.DAY_OF_YEAR));
+        return listOfEvents;
+
+    }
     //TODO:  handle user selects a day and clicks view day goto viewdayactivity
 
     //TODO: method to delete a selected event
+    //somehow get selected item from array list in fragment in onclick listener
 
     //TODO: method to edit a selected event
 

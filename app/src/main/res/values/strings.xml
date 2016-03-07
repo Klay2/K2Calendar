@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">K2Calendar</string>
+    <string name="button_view_day">View Day</string>
+    <string name="header_events">Events</string>
+    <string name="add_event">Add New Event</string>
+    <string name="delete_event">Delete Event</string>
+    <string name="edit_event">Edit Event</string>
 </resources>

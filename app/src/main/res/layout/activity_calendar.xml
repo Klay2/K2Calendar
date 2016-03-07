@@ -16,7 +16,6 @@
         android:background="?attr/colorPrimary"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
@@ -29,8 +28,8 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
+        android:layout_height="55dp"
+        android:text="@string/button_view_day"
         android:id="@+id/view_day_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
