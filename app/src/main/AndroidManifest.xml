@@ -15,7 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewDayActivity"></activity>
+        <activity android:name=".ViewDayActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wisc.cs.klay2.k2calendar.CalendarActivity" />
+        </activity>
     </application>
 
 </manifest>
